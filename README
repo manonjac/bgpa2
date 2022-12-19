@@ -3,10 +3,11 @@ README
 You will find in this artifact the following file :
 
 - Untitled-2.sh : a script bash who collect the information about as path. 
-To run if, you should write in the terminal ./Untitled-2.sh, you can provide up to 2 as as arguments. 
- - if 0 argument is provide, you will obtaint all the possible pair of as in the file allAsPair.txt
+To be able to run this script, you will need to install bgpdump. A complete tutorial could be found at https://docs.thousandeyes.com/product-documentation/internet-and-wan-monitoring/tests/bgp-tests/working-with-raw-bgp-data
+ To run the script, you should write in the terminal ./Untitled-2.sh, you can provide up to 2 AS as arguments. 
+ - if 0 argument is provide, you will obtaint all the possible pair of AS in the file allAsPair.txt
  - if 1 argument is provide, you will obtaint all the as-path with $1 as destination in the file output.txt
  - if 2 argument are provide, you will obtaint all the as-path between $1 and $2 in the file output.txt
 
-In addition, you could choose the data file from which the ASes path will be collected with the flag -d dataFileName
+ In addition, you could choose the data file from which the ASes path will be collected with the flag -d dataFileName.
 
