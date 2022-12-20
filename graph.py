@@ -107,15 +107,21 @@ def diversity(origine):
         if(fusion(origine)!=0 and f==False):
             frere = (fusion(origine)[0])
             soeur = (fusion(origine)[1])
-            print("fusion")
-            d = diversity(frere)
+            d = diversity(frere)*diversity(soeur)
             f = True
             
         else :
             dc = 0.5*diversity(i)
             d = d +dc - d*dc
     return d
+
+v7 = Node(7018,[])
+v6 = Node(5511,[v7])
+v5= Node(174,[v7])
+v4 = Node(12956,[v7])
+v3 = Node(37662,[v6])
+v2 = Node(6713,[v5,v4,v6])
+v1 = Node(25543,[v3,v2])         
         
-        
-origine = makeGraph("output.txt")
-print(diversity(origine))
+vo = makeGraph("output.txt")
+print(diversity(vo))
