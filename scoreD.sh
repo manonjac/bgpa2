@@ -26,6 +26,10 @@ fi
 
 echo "File created"
 
-echo "The score d of the pair $1 - $2 is "
+if [ $# -eq 2 ]
+    then
+    echo "The score d of the pair $1 - $2 is "
 
-./graphe.py
+    ./graphe.py
+
+fi
