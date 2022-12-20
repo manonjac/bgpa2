@@ -1,4 +1,4 @@
-
+#!/usr/bin/python3
 class Node :
     def __init__(self, AsNumber,list):
         self.AsNumber = AsNumber
@@ -19,7 +19,9 @@ def makeGraph(file):
 
     with open(file, 'r') as f:
         lines = f.read().splitlines()
-        print (lines)
+        if (lines == []):
+            return False
+        #print (lines)
         nombreAs = 0
         nombreAsPath = len(lines)
         As = [] #liste avec tous les as
@@ -74,20 +76,6 @@ def makeGraph(file):
         #print("enfant de 5511",origine.enfant[1].enfant[0].enfant[0].AsNumber)             
         return origine        
         
-        
-vo = makeGraph("output.txt")
-
-v7 = Node(7018,[])
-v6 = Node(6453,[v7])
-v5 = Node(12956,[v7])
-v41 = Node(174,[v7])
-v4 = Node(6713,[v41,v5])
-v2 = Node(5511,[v7])
-v3 = Node(8346,[v2])
-v1 = Node(29571,[v2])
-vo1 = Node(25543,[v3,v4,v1,v6])
-
-
 def fusion(node): # node = o
     
     if(node.enfant == []):
@@ -108,6 +96,9 @@ def fusion(node): # node = o
             
 
 def diversity(origine):
+    if not(origine):
+        return  "There is no as path between this pair of AS"
+    
     f = False
     d = 0
     if(origine.enfant==[]) :
@@ -124,9 +115,7 @@ def diversity(origine):
             dc = 0.5*diversity(i)
             d = d +dc - d*dc
     return d
-
-
-
-
-
-    
+        
+        
+origine = makeGraph("output.txt")
+print(diversity(origine))
