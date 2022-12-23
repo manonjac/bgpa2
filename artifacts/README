@@ -23,7 +23,14 @@ scoreD.py : a python file which computes the graphe of as path between the 2 as 
 
 -------------------------
 
-several data files (updates and bview) that we have used named according to their timestamp. They can be used with the -d flag.
+several data files compressed (updates and bview) that we have used named according to their timestamp. They can be used with the -d flag after extraction. We used the following file :
+  -updates.20221123.1105
+  -updates.20221130.2240
+  -bview.20121130.1600
+  -bview.20151130.1600
+  -bview.20171130.1600
+  
+  They can be found at 
 
 -------------------------
 
