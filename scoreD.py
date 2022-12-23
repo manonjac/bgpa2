@@ -21,7 +21,6 @@ def makeGraph(file):
         lines = f.read().splitlines()
         if (lines == []):
             return False
-        #print (lines)
         nombreAs = 0
         nombreAsPath = len(lines)
         As = [] #liste avec tous les as
@@ -43,10 +42,7 @@ def makeGraph(file):
         index = 0
         for i in AspathReverse :
             while(index < len(i)-1):
-                #if(i[index+1] not in pred.enfant):
                 if (NotcontainChild(i[index+1], pred.enfant)):
-                    
-                   # print("pred ", pred.AsNumber, "i ", i[index+1], "enfant", pred.enfant)
                     temp = Node(i[index+1],[])
                     pred.enfant.append(temp)
                     As.append(i[index+1])
@@ -56,27 +52,10 @@ def makeGraph(file):
                 index+=1
 
             index=0
-            pred = origine
-           # print(pred.AsNumber)
-                
-              # print(AspathReverse )
-     #  print(nombreAsPath)
-       # print("origine "+ origine.AsNumber)
-       # print("0",origine.enfant[0].AsNumber)
-        #print("1",origine.enfant[1].AsNumber)
-        #print("2",origine.enfant[2].AsNumber)
-        #print("3",origine.enfant[3].AsNumber)
-        #print("enfant de 6453",origine.enfant[3].enfant[0].AsNumber)
-        #print("enfant de 29571",origine.enfant[1].enfant[0].AsNumber)
-        #print("enfant de 8346",origine.enfant[2].enfant[0].AsNumber)
-        #print("enfant de 6713",origine.enfant[0].enfant[0].AsNumber)
-        #print("enfant de 6713",origine.enfant[0].enfant[1].AsNumber)
-        #print("enfant de 174",origine.enfant[0].enfant[1].enfant[0].AsNumber)
-        #print("enfant de 174",origine.enfant[0].enfant[0].enfant[0].AsNumber) 
-        #print("enfant de 5511",origine.enfant[1].enfant[0].enfant[0].AsNumber)             
+            pred = origine            
         return origine        
         
-def fusion(node): # node = o
+def fusion(node): # node = origine
     
     if(node.enfant == []):
         return False
@@ -86,9 +65,6 @@ def fusion(node): # node = o
         if(i.AsNumber != pred.AsNumber): #on verifie aue pred et i sont pas les memes as
             for j in i.enfant: #on verifie que les 2 enfants fusionnent 
                 if(j in pred.enfant ):
-                  #  print("pred.AsNumber ", pred.AsNumber)
-                   # print(pred.AsNumber ,i.AsNumber)
-                  #  print("fusion")
                     return [pred,i]
             pred = i # pred = l enfant suivant 
                 
@@ -113,15 +89,7 @@ def diversity(origine):
         else :
             dc = 0.5*diversity(i)
             d = d +dc - d*dc
-    return d
-
-v7 = Node(7018,[])
-v6 = Node(5511,[v7])
-v5= Node(174,[v7])
-v4 = Node(12956,[v7])
-v3 = Node(37662,[v6])
-v2 = Node(6713,[v5,v4,v6])
-v1 = Node(25543,[v3,v2])         
+    return d      
         
 vo = makeGraph("output.txt")
 print(diversity(vo))
