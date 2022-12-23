@@ -30,6 +30,6 @@ if [ $# -eq 2 ]
     then
     echo "The score d of the pair $1 - $2 is "
 
-    ./graphe.py
+    ./scoreD.py
 
 fi
