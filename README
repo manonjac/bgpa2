@@ -12,3 +12,4 @@ To be able to run this script, you will need to install bgpdump. A complete tuto
 
  In addition, you could choose the data file from which the ASes path will be collected with the flag -d dataFileName.
 
+https://data.ris.ripe.net/rrc00/
